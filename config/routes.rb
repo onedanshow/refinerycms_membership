@@ -21,6 +21,7 @@ Refinery::Application.routes.draw do
   end
 
   resource :members, :except => [:destroy] do
+    get :dashboard
     get :login
     get :thank_you
     get :profile

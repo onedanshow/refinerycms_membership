@@ -78,17 +78,14 @@ module Refinery
             # if a page has no roles assigned, let everyone see it
             if roles.blank?
               true
-
             else
               # if a page has roles, but the user doesn't or is nil
               if user.nil? || user.roles.blank?
                 false
-
               # otherwise, check user vs. page roles
               else
                 # restricted pages must be available for admins
                 (roles & user.roles).any? || user.has_role?('Refinery') || user.has_role?('Superuser')
-
               end
             end
           end

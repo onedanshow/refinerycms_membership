@@ -64,6 +64,9 @@ class MembersController < ApplicationController
 	
   def thank_you
   end
+  
+  def dashboard
+  end
 
   private
 
