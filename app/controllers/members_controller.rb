@@ -26,7 +26,8 @@ class MembersController < ApplicationController
     if params[:member][:password].blank? and params[:member][:password_confirmation].blank?
       params[:member].delete(:password)
       params[:member].delete(:password_confirmation)
-    end    
+    end
+
 
     if @member.update_attributes(params[:member])
       flash[:notice] = t('successful', :scope => 'members.update', :email => @member.email)
