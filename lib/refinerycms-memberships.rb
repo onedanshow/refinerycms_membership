@@ -56,13 +56,14 @@ module Refinery
             if resource_or_scope.class.superclass.name == 'User' || 
               resource_or_scope.class.name == 'User' ||
               resource_or_scope.to_s == 'user'
+              
               if params[:redirect].present?
                 params[:redirect]
               else
                 if !resource_or_scope.is_a?(Symbol) && (resource_or_scope.has_role?('Superuser')||resource_or_scope.has_role?('Refinery'))
                   super
                 else
-                  '/'
+                  dashboard_members_url
                 end
               end
             else
