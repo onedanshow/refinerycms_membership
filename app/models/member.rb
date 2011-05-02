@@ -6,13 +6,15 @@ class Member < User
   
   acts_as_indexed :fields => [:first_name, :last_name]
   
-  validates :membership_level, :first_name, :last_name, :province, :presence => true
+  validates :membership_level, :first_name, :last_name, :presence => true
   attr_accessible :membership_level, :first_name, :last_name, :title, :organization,
     :street_address, :city, :province, :postal_code, :phone, :fax, :website, 
     :enabled, :add_to_member_until, :role_ids
 
   set_inheritance_column :membership_level
-  
+
+  after_create :ensure_member_role
+
   def full_name
     "#{self.first_name} #{last_name}"
   end

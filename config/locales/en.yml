@@ -19,10 +19,64 @@ en:
         view_live_html: View this membership live <br/><em>(opens in a new window)</em>
         edit: Edit this membership
         delete: Remove this membership forever
+      new_members: New Members
+      no_new_members: No New Members
+    members:
+      delete: Delete Member
+      edit: Edit Member
+      cancel: Cancel Member
+      extend: Extend Member
+      account_active: Account Active
+      members_administration: Members Admin
+      account: Member Account
+      organization: Member Organisation
+      profile: Member Profile
+      activation: Member Activation
+      user_can_login: Member Can Login
+      member_until: Member Until
+      extend_membership_for: Extend Membership For
+    membership_emails:
+      emails_administration: Email Admin  
+      admin_member_accepted: Member Accepted Email (to admin)
+      admin_member_created: Member Created Email (to admin)
+      admin_member_deleted: Member Deleted Email (to admin)
+      admin_member_profile_updated: Member Profile Updated Email (to admin)
+      admin_member_rejected: Member Rejected (to admin)
+      admin_membership_extended: Membership Extended Email (to admin)
+      member_accepted: Member Accepted
+      member_created: Member Created
+      member_deleted: Member Deleted
+      member_rejected: Member Rejected
+      membership_extended: Membership Extended 
+      email_settings: Email Settings
+      settings:
+        deliver_notifications_on: Deliver Notifications On
+        deliver_admin_notifications_to: Deliver Notifications To
+        admin_notifications: Admin Notifications
+        email_delivery: Member Email Delivery
+      shared_email_parts: Shared Email parts
+    membership_email_parts:
+      email_header: Email Header
+      email_footer: Email Footer
+    roles:
+      roles_administration: Roles Admin 
+      new_role: New Role
+      no_roles_yet: No Roles Yet
+      edit: Edit Role
+      delete: Delete Role
+    pages:
+      tabs:
+        roles:
+          allow_everyone: Allow Everyone
+          allow_all_members: Allow Logged in Members
+          allow_members_of: Allow Members Of
   memberships:
     show:
       other: Other Memberships
   members:
+    login_form:
+      login: Email
+      password: Password
     shared:
       account: Account
       profile: Profile

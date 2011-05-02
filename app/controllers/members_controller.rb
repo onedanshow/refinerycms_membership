@@ -31,7 +31,7 @@ class MembersController < ApplicationController
 
     if @member.update_attributes(params[:member])
       flash[:notice] = t('successful', :scope => 'members.update', :email => @member.email)
-      MembershipMailer.profile_update_notification_admin(@member).deliver unless is_admin?
+      MembershipMailer.profile_update_notification_admin(@member).deliver 
       redirect_to profile_members_path
     else
       render :action => 'edit'
@@ -46,11 +46,9 @@ class MembersController < ApplicationController
       MembershipMailer.application_confirmation_admin(@member).deliver
       
       redirect_to thank_you_members_path
-
     else
       @member.errors.delete(:username) # this is set to email
-      render :action => :new
-      
+      render :action => :new 
     end
 
   end
