@@ -1,0 +1,13 @@
+New Member Approved
+
+<%= sanitize(@email.body, :tags => []) %>
+
+New Member's Profile: <%= edit_members_url(:id => @member.id) %>
+
+Member Details
+
+<% @member.attributes.each do |k, v| %>
+  <% unless v.present? || k=~ /password|username|updated/ %>
+    <%= "#{k.humanize}:" %> <%= v %>
+  <% end %>
+<% end %>

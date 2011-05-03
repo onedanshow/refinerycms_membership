@@ -1,0 +1,5 @@
+Hi <%= @member.first_name %>
+
+<%= sanitize(@email.body, :tags => []) %>
+
+Edit Profile: <%= edit_members_url(:id => @member.id) %>

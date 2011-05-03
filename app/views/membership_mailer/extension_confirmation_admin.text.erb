@@ -1,0 +1,13 @@
+Member Extension
+
+<%= sanitize(@email.body, :tags => []) %>
+
+Member Details
+
+<% @member.attributes.each do |k, v|
+  unless v.blank? || k =~ /password|username|updated/%>
+    <%= "#{k.humanize}:"%> <%= v %>
+<%end
+end %>
+
+Edit Profile: <%= edit_members_url(:id => @member.id) %>
