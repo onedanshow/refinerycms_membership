@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
 
   # Protect these actions behind member login - do we need to check out not signing up when signed in?
-  before_filter :redirect?, :except => [:new, :create, :login, :index, :thank_you]
+  before_filter :authenticate_user!, :except => [:new, :create, :login, :index, :thank_you]
 
   before_filter :find_page
 
@@ -70,11 +70,6 @@ class MembersController < ApplicationController
   private
 
 protected
-  def redirect?
-    if current_user.nil?
-      redirect_to new_user_session_path
-    end
-  end
 
   def find_page
     uri = request.fullpath
