@@ -5,7 +5,7 @@ __A role based membership engine for [refinerycms](http://refinerycms.com)__
 ## Installation
 
 * To your Gemfile add: 
-* gem 'refinerycms-memberships', '1.0', :path => 'vendor/engines'
+* gem 'refinerycms-memberships', '1.0', :git => 'git@github.com:ruby-fu-ninja/refinerycms_membership.git'
 * Then run:
 * bundle install
 * rails generate refinerycms_memberships
