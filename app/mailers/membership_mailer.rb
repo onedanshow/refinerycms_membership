@@ -1,72 +1,84 @@
 class MembershipMailer < ActionMailer::Base
   default :from => ADMIN_EMAIL
-  
+   
   def application_confirmation_member(member)
     @member = member
-    mail(:to => member.email, :subject => 'EDAC|ACDE')
+    assign_membership_email(__method__)
+    mail(:to => member.email, :subject => @email.subject)
   end
 
-  def application_confirmation_admin(member)
+  def application_confirmation_admin(member, admin)
     @member = member
-    mail(:to => ADMIN_EMAIL,
-      :subject => "Sign up: #{member.first_name} #{member.last_name} (#{member.email})")
+    @admin = admin
+    assign_membership_email(__method__)
+    mail(:to => @admin.email,
+      :subject => @email.subject)
   end
 
   def acceptance_confirmation_member(member)
     @member = member
+    assign_membership_email(__method__)
     mail(:to => member.email,
-      :subject => 'EDAC - Welcome! | ACDE - Bienvenue!')
+      :subject => @email.subject) 
   end
 
   def acceptance_confirmation_admin(member, admin)
     @member = member
     @admin = admin
-    mail(:to => ADMIN_EMAIL,
-      :subject => "Approved: #{member.first_name} #{member.last_name} (#{member.email})")
+    assign_membership_email(__method__)
+    mail(:to => @admin.email,
+      :subject => @email.subject) 
   end
 
   def rejection_confirmation_member(member)
     @member = member
+    assign_membership_email(__method__)
     mail(:to => member.email,
-      :subject => 'EDAC|ACDE')
+      :subject => @email.subject)
   end
 
   def rejection_confirmation_admin(member, admin)
     @member = member
     @admin = admin
-    mail(:to => ADMIN_EMAIL,
-      :subject => "Rejected: #{member.first_name} #{member.last_name} (#{member.email})")
+    assign_membership_email(__method__)
+    mail(:to => @admin.email,
+       :subject => @email.subject)
   end
 
   def extension_confirmation_member(member)
     @member = member
+    assign_membership_email(__method__)
     mail(:to => member.email,
-      :subject => 'EDAC|ACDE - Extension')
+      :subject => @email.subject)
   end
 
   def extension_confirmation_admin(member, admin)
     @member = member
     @admin = admin
-    mail(:to => ADMIN_EMAIL,
-      :subject => "Extension (1 yr.): #{member.first_name} #{member.last_name} (#{member.email})")
+    assign_membership_email(__method__)
+    mail(:to => @admin.email,
+      :subject => @email.subject) 
   end
 
   def cancellation_confirmation_member(member)
     @member = member
+    assign_membership_email(__method__)
     mail(:to => member.email,
-      :subject => 'EDAC | ACDE - Cancellation')
+      :subject => @email.subject) 
   end
 
   def cancellation_confirmation_admin(member, admin)
     @member = member
     @admin = admin
-    mail(:to => ADMIN_EMAIL,
-      :subject => "Cancelled: #{member.first_name} #{member.last_name} (#{member.email})")
+    assign_membership_email(__method__)
+    mail(:to => @admin.email,
+      :subject => @email.subject) 
   end
-
-  def profile_update_notification_admin(member)
-    @member = member
-    mail(:to => ADMIN_EMAIL,
-      :subject => "Profile Updated: #{member.first_name} #{member.last_name} (#{member.email})")
+ 
+  protected
+  
+  def assign_membership_email(title)
+    @email = MembershipEmail.where(:title => title).first
   end
+  
 end

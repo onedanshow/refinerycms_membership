@@ -26,11 +26,11 @@ class MembersController < ApplicationController
     if params[:member][:password].blank? and params[:member][:password_confirmation].blank?
       params[:member].delete(:password)
       params[:member].delete(:password_confirmation)
-    end    
+    end
+
 
     if @member.update_attributes(params[:member])
       flash[:notice] = t('successful', :scope => 'members.update', :email => @member.email)
-      MembershipMailer.profile_update_notification_admin(@member).deliver unless is_admin?
       redirect_to profile_members_path
     else
       render :action => 'edit'
@@ -42,14 +42,14 @@ class MembersController < ApplicationController
 
     if @member.save
       MembershipMailer.application_confirmation_member(@member).deliver
-      MembershipMailer.application_confirmation_admin(@member).deliver
-      
+      @admins = User.where("email in (?)", RefinerySetting.get("deliver_notification_to_users")).all
+      @admins.each do |admin|
+        MembershipMailer.application_confirmation_admin(@member, admin).deliver 
+      end
       redirect_to thank_you_members_path
-
     else
       @member.errors.delete(:username) # this is set to email
-      render :action => :new
-      
+      render :action => :new 
     end
 
   end
@@ -62,6 +62,9 @@ class MembersController < ApplicationController
 	end
 	
   def thank_you
+  end
+  
+  def dashboard
   end
 
   private
