@@ -1,7 +1,7 @@
 <h1>Member Extension</h1>
-<ul>
-  <li>Approve the extension, giving them another year!</li>
-</ul>
+
+<%= raw(@email.body) %>
+
 <h2>Member Details</h2>
 <p>
   <% @member.attributes.each do |k, v|

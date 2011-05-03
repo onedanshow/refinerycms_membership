@@ -1,8 +1,6 @@
 <h1>Membership Application Reject</h1>
 
-<p>
-  This Member was rejected by <%= @admin.username %>
-</p>
+<%= raw(@email.body) %>
 
 <p>
   Profile <%= edit_members_url(:id => @member.id) %>

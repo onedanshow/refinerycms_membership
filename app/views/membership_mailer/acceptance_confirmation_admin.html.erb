@@ -1,8 +1,6 @@
 <h1>New Member Approved</h1>
 
-<p>
-  This Member was approved by <%= @admin.username %>
-</p>
+<%= raw(@email.body) %>
 
 <p>
   New Member's Profile: <%= edit_members_url(:id => @member.id) %>

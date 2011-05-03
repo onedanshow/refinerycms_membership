@@ -53,6 +53,7 @@ en:
       member_rejected: Member Rejected
       membership_extended: Membership Extended 
       email_settings: Email Settings
+      edit: Edit Email
       settings:
         deliver_notifications_on: Deliver Notifications On
         deliver_admin_notifications_to: Deliver Notifications To
