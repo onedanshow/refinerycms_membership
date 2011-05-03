@@ -16,5 +16,5 @@ __A role based membership engine for [refinerycms](http://refinerycms.com)__
 
 * Member authentication + dashboard + profile editing
 * Member adminisistration (approve, extend, reject, cancel, delete)
-* Role Management 
+* Role Management (Add new roles and assign them to pages) 
 * Email Management (CMSerised email templates)
