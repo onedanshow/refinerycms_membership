@@ -37,12 +37,16 @@ en:
       extend_membership_for: Extend Membership For
     membership_emails:
       emails_administration: Email Admin  
-      admin_member_accepted: Member Accepted Email (to admin)
-      admin_member_created: Member Created Email (to admin)
-      admin_member_deleted: Member Deleted Email (to admin)
-      admin_member_profile_updated: Member Profile Updated Email (to admin)
-      admin_member_rejected: Member Rejected (to admin)
-      admin_membership_extended: Membership Extended Email (to admin)
+      acceptance_confirmation_admin: Member Accepted (to admin)
+      acceptance_confirmation_member: Member Accepted
+      application_confirmation_admin: Application Confirmation (to admin)
+      application_confirmation_member: Application Confirmation
+      cancellation_confirmation_admin: Member Cancelled (to admin)
+      cancellation_confirmation_member: Member Cancelled
+      extension_confirmation_admin: Member Confirmed (to admin)
+      extension_confirmation_member: Member Confirmed
+      rejection_confirmation_admin: Member Rejected (to admin)
+      rejection_confirmation_member: Member Rejected 
       member_accepted: Member Accepted
       member_created: Member Created
       member_deleted: Member Deleted

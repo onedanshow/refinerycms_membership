@@ -31,7 +31,6 @@ class MembersController < ApplicationController
 
     if @member.update_attributes(params[:member])
       flash[:notice] = t('successful', :scope => 'members.update', :email => @member.email)
-      MembershipMailer.profile_update_notification_admin(@member).deliver 
       redirect_to profile_members_path
     else
       render :action => 'edit'
@@ -43,8 +42,10 @@ class MembersController < ApplicationController
 
     if @member.save
       MembershipMailer.application_confirmation_member(@member).deliver
-      MembershipMailer.application_confirmation_admin(@member).deliver
-      
+      @admins = User.where("email in (?)", RefinerySetting.get("deliver_notification_to_users")).all
+      @admins.each do |admin|
+        MembershipMailer.application_confirmation_admin(@member, admin).deliver 
+      end
       redirect_to thank_you_members_path
     else
       @member.errors.delete(:username) # this is set to email
