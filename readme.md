@@ -4,7 +4,6 @@ __A role based membership engine for [refinerycms](http://refinerycms.com)__
 
 ## Installation
 
-* Clone this repo into vendor/engines/refinerycms-memberships
 * To your Gemfile add: 
 * gem 'refinerycms-memberships', '1.0', :path => 'vendor/engines'
 * Then run:
