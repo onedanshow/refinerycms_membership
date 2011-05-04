@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
 
   # Protect these actions behind member login - do we need to check out not signing up when signed in?
-  before_filter :redirect?, :except => [:new, :create, :login, :index, :thank_you]
+  before_filter :authenticate_user!, :except => [:new, :create, :login, :index, :thank_you]
 
   before_filter :find_page
 
@@ -39,13 +39,8 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new(params[:member])
-
+    
     if @member.save
-      MembershipMailer.application_confirmation_member(@member).deliver
-      @admins = User.where("email in (?)", RefinerySetting.get("deliver_notification_to_users")).all
-      @admins.each do |admin|
-        MembershipMailer.application_confirmation_admin(@member, admin).deliver 
-      end
       redirect_to thank_you_members_path
     else
       @member.errors.delete(:username) # this is set to email
@@ -70,11 +65,6 @@ class MembersController < ApplicationController
   private
 
 protected
-  def redirect?
-    if current_user.nil?
-      redirect_to new_user_session_path
-    end
-  end
 
   def find_page
     uri = request.fullpath

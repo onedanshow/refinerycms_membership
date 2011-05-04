@@ -1,8 +1,7 @@
 <h1>Member Canceled</h1>
 
-<p>
-  This Member was canceled by <%= @admin.username %>
-</p>
+
+<%= raw(@email.body) %>
 
 <p>
   Canceled Member's Profile: <%= edit_members_url(:id => @member.id) %>

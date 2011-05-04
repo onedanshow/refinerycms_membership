@@ -32,8 +32,6 @@ describe MembersController do
                                             "password"=>"testpw", "password_confirmation"=>"testpw", 
                                             "first_name"=>"Test", "last_name"=>"User", "title"=>"mr"}
       response.should be_redirect
-      sent.first.to.first.should  == "test@test2.com"
-      sent.last.to.first.should == @user.email 
     end
   
     it "should render new page with invalid attributes" do
@@ -97,8 +95,5 @@ describe MembersController do
   
   protected
   
-  def sent
-    ActionMailer::Base.deliveries
-  end
 end
 

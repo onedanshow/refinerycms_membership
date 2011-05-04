@@ -1,13 +1,7 @@
 <h1>Hi <%= @member.first_name %></h1>
 
-<p>
-You've been approved!
-</p>
+<%= raw(@email.body) %>
 
 <p>
-Thanks for being so awesome! You can now access the membership area.
-</p>
-
-<p>
-Edit Profile: <%= edit_members_url(:id => @member.id) %>
+  Edit Profile: <%= edit_members_url(:id => @member.id) %>
 </p>

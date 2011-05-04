@@ -1,8 +1,7 @@
-<h1>New Member Application</h1>
-<ul>
-  <li>Approve the member, giving them access to the member's area</li>
-</ul>
+<%= raw(@email.body) %>
+
 <h2>Member Details</h2>
+
 <p>
   <% @member.attributes.each do |k, v|
     unless v.blank? || k =~ /password|username|updated/%>
@@ -12,5 +11,5 @@
 </p>
 
 <p>
-Edit Profile: <%= edit_members_url(:id => @member.id) %>
+  Edit Profile: <%= edit_members_url(:id => @member.id) %>
 </p>
