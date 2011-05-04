@@ -3,11 +3,10 @@ require "spec_helper"
 describe MembershipMailer do
   
   before do
-    # Load Membership Emails
-    if (seed_file = Rails.root.join('db', 'seeds', 'refinerycms_membership_emails.rb')).file?
-      load seed_file.to_s 
-    end
-    
+    # Load default templates
+    load Rails.root.join('db', 'seeds', 'refinerycms_membership_emails.rb')
+    load Rails.root.join('db', 'seeds', 'refinerycms_membership_email_parts.rb')
+
     @role = Role.make(:id => MEMBER_ROLE_ID, :title => "Member")
     @member = Member.make
     ActionMailer::Base.deliveries = []
