@@ -14,6 +14,9 @@ class CreateMembershipEmails < ActiveRecord::Migration
     if (seed_file = Rails.root.join('db', 'seeds', 'refinerycms_membership_emails.rb')).file?
       load seed_file.to_s unless MembershipEmail.count > 0
     end
+    if(seed_file = Rails.root.join('db', 'seeds', 'refinerycms_membership_settings.rb')).file?
+      load seed_file.to_s
+    end
   end
 
   def self.down

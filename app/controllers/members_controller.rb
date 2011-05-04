@@ -39,13 +39,8 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new(params[:member])
-
+    
     if @member.save
-      MembershipMailer.application_confirmation_member(@member).deliver
-      @admins = User.where("email in (?)", RefinerySetting.get("deliver_notification_to_users")).all
-      @admins.each do |admin|
-        MembershipMailer.application_confirmation_admin(@member, admin).deliver 
-      end
       redirect_to thank_you_members_path
     else
       @member.errors.delete(:username) # this is set to email

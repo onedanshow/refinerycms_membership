@@ -10,6 +10,7 @@ describe MembershipMailer do
     
     @role = Role.make(:id => MEMBER_ROLE_ID, :title => "Member")
     @member = Member.make
+    ActionMailer::Base.deliveries = []
     @admin = User.make
     @admin.add_role(:superuser)
   end

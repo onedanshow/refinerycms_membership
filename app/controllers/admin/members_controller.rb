@@ -30,16 +30,12 @@ class Admin::MembersController < Admin::BaseController
   def extend
     find_member    
     @member.extend
-    #MembershipMailer.extension_confirmation_member(@member).deliver
-    #MembershipMailer.extension_confirmation_admin(@member, current_user).deliver
     render :nothing => true
   end
   
   def cancel
     find_member
-    @member.deactivate
-    #MembershipMailer.cancellation_confirmation_member(@member).deliver
-    #MembershipMailer.cancellation_confirmation_admin(@member, current_user).deliver
+    @member.cancel
     render :nothing => true
   end
   
@@ -51,17 +47,13 @@ class Admin::MembersController < Admin::BaseController
   
   def accept
     find_member
-    @member.activate
-    #MembershipMailer.acceptance_confirmation_member(@member).deliver
-    #MembershipMailer.acceptance_confirmation_admin(@member, current_user).deliver
+    @member.accept
     render :nothing => true
   end
   
   def reject
     find_member
-    @member.deactivate
-    #MembershipMailer.rejection_confirmation_member(@member).deliver
-    #MembershipMailer.rejection_confirmation_admin(@member, current_user).deliver
+    @member.reject
     render :nothing => true
   end
   
