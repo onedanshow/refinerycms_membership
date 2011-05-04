@@ -36,7 +36,7 @@ describe PagesController do
         :roles => [Role[:my_role]])
     end
 
-    it "should 404 for invalid page/user role combination" do
+    it "should redirect for invalid page/user role combination" do
       @mock_user.stub(:roles).and_return([])
       get :show, :id => @page.id
       assert_redirected_to(login_members_path(:redirect => request.fullpath, :member_login => true))
