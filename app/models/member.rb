@@ -85,12 +85,6 @@ class Member < User
     self.is_new ? super : I18n.translate('devise.failure.locked')
   end 
   
-  protected
-  
-  def nil_paid_until
-    self.member_until = nil
-  end
-  
   def deactivate
     self.enabled = false
     self.is_new = false
@@ -105,6 +99,12 @@ class Member < User
     add_year_to_member_until if RefinerySetting::find_or_set('memberships_timed_accounts', true)
     ensure_member_role
     save!
+  end
+  
+  protected
+  
+  def nil_paid_until
+    self.member_until = nil
   end
  
   def deliver_confirmation_mail
