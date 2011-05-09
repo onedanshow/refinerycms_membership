@@ -41,7 +41,7 @@ class Member < User
 
   def active_for_authentication?
     a = self.enabled && role_ids.include?(MEMBER_ROLE_ID)
-    if RefinerySetting::find_or_set('memberships_timed_accounts', true)
+    if RefinerySetting::find_or_set('membership_timed_accounts', true)
       if member_until.nil?
         a = false
       else
@@ -53,9 +53,8 @@ class Member < User
   alias active? active_for_authentication?
 
   def lapsed?
-    if RefinerySetting::find_or_set('memberships_timed_accounts', true)
+    if RefinerySetting::find_or_set('membership_timed_accounts', true)
       member_until.present? && member_until.past?
-
     else
       false
     end
@@ -95,8 +94,8 @@ class Member < User
   def activate
     self.is_new = false
     self.enabled = true
-    nil_paid_until if lapsed? && RefinerySetting::find_or_set('memberships_timed_accounts', true)
-    add_year_to_member_until if RefinerySetting::find_or_set('memberships_timed_accounts', true)
+    nil_paid_until if lapsed? && RefinerySetting::find_or_set('membership_timed_accounts', true)
+    add_year_to_member_until if RefinerySetting::find_or_set('membership_timed_accounts', true)
     ensure_member_role
     save!
   end

@@ -45,8 +45,8 @@ en:
       application_confirmation_member: Application Confirmation
       cancellation_confirmation_admin: Member Cancelled (to admin)
       cancellation_confirmation_member: Member Cancelled
-      extension_confirmation_admin: Member Confirmed (to admin)
-      extension_confirmation_member: Member Confirmed
+      extension_confirmation_admin: Member Extended (to admin)
+      extension_confirmation_member: Member Extended
       rejection_confirmation_admin: Member Rejected (to admin)
       rejection_confirmation_member: Member Rejected 
       member_accepted: Member Accepted
