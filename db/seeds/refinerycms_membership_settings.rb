@@ -16,3 +16,5 @@ RefinerySetting.set('deliver_mail_extension_confirmation_member', false)
 RefinerySetting.set('deliver_mail_extension_confirmation_admin', false)
 RefinerySetting.set('deliver_mail_cancellation_confirmation_member', false)
 RefinerySetting.set('deliver_mail_cancellation_confirmation_admin', false)
+
+RefinerySetting.set('roles_admin_enabled', true)

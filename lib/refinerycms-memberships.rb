@@ -14,12 +14,13 @@ module Refinery
           plugin.menu_match = /(refinery|admin)\/(memberships|members|membership_emails|membership_email_parts|roles)$/
         end
         
-        # permissions tap on page editor
-        ::Refinery::Pages::Tab.register do |tab|
-          tab.name = "Access restrictions"
-          tab.partial = "/admin/pages/tabs/roles"
+        if RefinerySetting.find_or_set('roles_admin_enabled', true) 
+          # permissions tap on page editor
+          ::Refinery::Pages::Tab.register do |tab|
+            tab.name = "Access restrictions"
+            tab.partial = "/admin/pages/tabs/roles"
+          end
         end
-
         # this broke as part of config.to_prepare
         # Do this or lost password non-admins still goes to the dashboard
         ::Admin::DashboardController.class_eval do
