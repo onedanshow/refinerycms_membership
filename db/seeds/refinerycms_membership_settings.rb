@@ -1,5 +1,5 @@
 # Set admin notifications to all admins
-@admins = User.all.select {|u|u.has_role?(:refinery) || u.has_role?(:superuser)}
+@admins = User.all.select {|u|u.has_role?(:refinery) || u.has_role?(:superuser)}.collect(&:email)
 RefinerySetting.set('deliver_notification_to_users', @admins)
 
 RefinerySetting.set('deliver_mail_application_confirmation_member', true)

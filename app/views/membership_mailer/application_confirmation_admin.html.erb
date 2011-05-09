@@ -11,5 +11,5 @@
 </p>
 
 <p>
-  Edit Profile: <%= edit_members_url(:id => @member.id) %>
+Edit Profile: <%= link_to edit_members_url(:id => @member.id), edit_members_url(:id => @member.id) %>
 </p>
