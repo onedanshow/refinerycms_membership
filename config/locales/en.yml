@@ -22,6 +22,7 @@ en:
       new_members: New Members
       no_new_members: No New Members
     members:
+      no_members_yet: No Results 
       user_roles: Member Roles
       enable: Enable Member
       delete: Delete Member
