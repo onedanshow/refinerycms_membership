@@ -12,6 +12,7 @@ module Refinery
         Refinery::Plugin.register do |plugin|
           plugin.name = "memberships"
           plugin.menu_match = /(refinery|admin)\/(memberships|members|membership_emails|membership_email_parts|roles)$/
+          plugin.controller = RefinerySetting.find_or_set('membership_approve_accounts', false) ? 'memberships' : 'members'
         end
         
         if RefinerySetting.find_or_set('roles_admin_enabled', true) 

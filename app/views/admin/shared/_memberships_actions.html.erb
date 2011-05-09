@@ -15,9 +15,12 @@
   </li> 
   <% end %>
   
-  <li>
-    <%= link_to t('new_members', :scope => 'admin.memberships'), admin_memberships_path, :class => "new_members_icon" %>
-  </li>  
+  <% if RefinerySetting.find_or_set('membership_approve_accounts', false) %>
+    <li>
+      <%= link_to t('new_members', :scope => 'admin.memberships'), admin_memberships_path, :class => "new_members_icon" %>
+    </li>  
+  <% end %>
+  
   <li>
     <%= link_to t('members_administration', :scope => 'admin.members'), admin_members_path, :class => "members_icon" %>
   </li>

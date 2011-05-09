@@ -10,7 +10,9 @@
 <%= render :partial => 'form_profile', :locals => {:f => f} %>
 <%= render :partial => 'form_organization', :locals => {:f => f} %>
 <%= render :partial => 'form_activation', :locals => {:f => f} %>
-<%= render :partial => 'form_roles', :locals => {:f => f} %>
+<% if RefinerySetting.find_or_set('roles_admin_enabled', true) %> 
+  <%= render :partial => 'form_roles', :locals => {:f => f} %>
+<% end %>
 
 <%= hidden_field_tag :redirect_to_url, request.referrer %>
 

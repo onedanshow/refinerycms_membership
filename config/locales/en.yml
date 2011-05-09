@@ -5,7 +5,7 @@ en:
         image: image
   plugins:
     memberships:
-      title: Memberships
+      title: Members
   admin:
     memberships:
       index:
@@ -22,6 +22,8 @@ en:
       new_members: New Members
       no_new_members: No New Members
     members:
+      user_roles: Member Roles
+      enable: Enable Member
       delete: Delete Member
       edit: Edit Member
       cancel: Cancel Member
