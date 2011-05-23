@@ -27,7 +27,7 @@ class Admin::MembersController < Admin::BaseController
     params[:redirect_to_url].present? ? redirect_to(params[:redirect_to_url]) : super 
   end
   
-  def extend
+  def extend_member
     find_member    
     @member.extend
     render :nothing => true

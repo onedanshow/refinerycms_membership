@@ -13,7 +13,7 @@ module Admin
     end
 
     it "should put extend" do
-      put :extend, :id => @member.id
+      put :extend_member, :id => @member.id
 
       response.should be_success
     end 

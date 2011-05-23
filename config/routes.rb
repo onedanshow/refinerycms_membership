@@ -7,7 +7,7 @@ Refinery::Application.routes.draw do
         put :reject
         put :accept
         put :cancel
-        put :extend
+        put :extend_member
         put :enable
       end
     end
