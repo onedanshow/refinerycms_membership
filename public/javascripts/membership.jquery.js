@@ -21,7 +21,6 @@
     $(table).find('thead th').each(function(idx, th){
       var id = null;
       var w = $(th).widthFromClass();
-      console.log(w)
       columns.push({
         name: $(th).html(), 
         field: (id = Math.round(Math.random()*100000).toString()), 
@@ -31,7 +30,6 @@
         sortable: $(th).hasClass('sortable')
       });
     });
-    console.log(columns)
     var data = []
     $(table).find('tbody tr').each(function(idx, tr){
       var row = {};
