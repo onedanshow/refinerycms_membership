@@ -1,5 +1,5 @@
 class MembershipMailer < ActionMailer::Base
-  default :from => ADMIN_EMAIL
+  default :from => RefinerySetting.get('membership_from_email_address')
   
   layout 'mail_member'  
   

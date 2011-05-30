@@ -18,3 +18,5 @@ RefinerySetting.set('deliver_mail_cancellation_confirmation_member', false)
 RefinerySetting.set('deliver_mail_cancellation_confirmation_admin', false)
 
 RefinerySetting.set('roles_admin_enabled', true)
+
+RefinerySetting.set('membership_from_email_address', "noreply@yourdomain.com")

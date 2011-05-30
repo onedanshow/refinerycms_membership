@@ -4,6 +4,8 @@ class MembersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create, :login, :index, :thank_you]
 
   before_filter :find_page
+  # Taken from http://www.cherpec.com/2009/06/missing-host-to-link-to-please-provide-host-parameter-or-set-default_url_optionshost/
+  before_filter :mailer_set_url_options
 
   # GET /member/:id
   def profile
@@ -65,6 +67,11 @@ class MembersController < ApplicationController
   private
 
 protected
+
+  # Taken from http://www.cherpec.com/2009/06/missing-host-to-link-to-please-provide-host-parameter-or-set-default_url_optionshost/
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
 
   def find_page
     uri = request.fullpath
